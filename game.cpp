@@ -26,8 +26,9 @@ Game ::Game(std ::string Name, int h, std ::string skillname, double lev, std ::
 void Game ::print()
 {
     struct skill s = v.GetSkill();
-    std ::cout << std ::left << std ::setw(20) << "NAME" << "|" << std ::setw(10) << "HEALTH" << "|" << std ::setw(10) << "SKILL NAME" << "|" << std ::setw(10) << "LEVEL" << "|"
-               << std ::setw(10) << "POWER" << "|" << '\n';
+    std ::cout << std ::left << std ::setw(20) << "Name" << "|" << std ::setw(10) << "Health" << 
+    "|" << std ::setw(10) << "Skill Name" << "|" << std ::setw(10) << "Level" << "|"
+               << std ::setw(10) << "Power" << "|" << '\n';
     std ::cout << std ::string(60, '-') << '\n';
     std ::cout << std ::left << std ::setw(20) << v.GetName() << "|" << std ::setw(10) << v.GetHealth() << "|" << std ::setw(10) << s.skillName << "|" << std ::setw(10) << s.level << "|" << std ::setw(10) << v.GetPower() << "|" << '\n';
 }
