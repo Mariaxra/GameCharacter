@@ -12,7 +12,7 @@ private:
     Character v;
 
 public:
-    Game(std ::string Name, int h, std ::string skillname, double lev, std ::string pow);
+    Game(std ::string Name, std :: string  h, std ::string skillname, double lev, std ::string pow);
 
     void print();
 };

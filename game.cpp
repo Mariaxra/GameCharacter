@@ -2,18 +2,30 @@
 #include <iostream>
 #include <iomanip>
 #include <stdexcept>
-Game ::Game(std ::string Name, int h, std ::string skillname, double lev, std ::string pow)
+#include <string>
+Game ::Game(std ::string Name, std :: string h, std ::string skillname, double lev, std ::string pow)
 {
     if (Name.empty() || skillname.empty() || pow.empty())
     {
         throw std :: invalid_argument("Empty Strings Aren't Availiable !\n");
         return;
     }
-    if (h >= 0 && lev >= 0)
+    try{
+        stoi(h);
+    }
+    catch(const std :: invalid_argument&){
+        throw std :: invalid_argument("floating point aren't valid for health");
+    }
+    catch(std :: out_of_range&)
+    {
+        throw std :: out_of_range("Number is out of range");
+    }
+    int health = stoi(h);
+    if (health >= 0 && lev >= 0 )
     {
         skill s = {skillname, lev};
         v.SetName(Name);
-        v.SetHealth(h);
+        v.SetHealth(health);
         v.SetSkill(s);
         v.SetPower(pow);
     }
