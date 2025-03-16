@@ -3,6 +3,23 @@
 #include <iomanip>
 #include <stdexcept>
 #include <string>
+bool Is_Intiger(std :: string x)
+{
+    if(x.find('.') != std :: string :: npos)
+    {
+        throw std :: invalid_argument(  "Floating point aren't availiable .");
+    }
+   
+    try {
+        stoi(x); 
+        return true;
+    } catch (const std::invalid_argument& e) {
+        return false; 
+    } catch (const std::out_of_range& e) {
+        return false;
+    }
+   
+}
 Game ::Game(std ::string Name, std :: string h, std ::string skillname, std :: string lev, std ::string pow)
 {
     if (Name.empty() || skillname.empty() || pow.empty())
@@ -10,17 +27,8 @@ Game ::Game(std ::string Name, std :: string h, std ::string skillname, std :: s
         throw std :: invalid_argument("Empty Strings Aren't Availiable !");
         return;
     }
-    try{
-        stoi(h);
-        stoi(lev);
-    }
-    catch(const std :: invalid_argument&){
-        throw std :: invalid_argument("floating point aren't valid for health or level");
-    }
-    catch(std :: out_of_range&)
-    {
-        throw std :: out_of_range("Number is out of range");
-    }
+
+    if(Is_Intiger(h) && Is_Intiger(lev)){
     int health = stoi(h);
     int l = stoi(lev);
     if (health >= 0 && l >= 0 )
@@ -36,6 +44,7 @@ Game ::Game(std ::string Name, std :: string h, std ::string skillname, std :: s
         throw std :: invalid_argument("Nagetive Numbers Aren't Availiable ! \n");
         return;
     }
+}
 }
 void Game ::print()
 {
