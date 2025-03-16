@@ -6,14 +6,14 @@ struct skill
 {
 
     std ::string skillName;
-    double level;
+    int level;
 };
 class Character
 {
 
 private:
     std ::string name;
-    double health;
+    int health;
     skill skills;
     std ::string power;
 

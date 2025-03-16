@@ -3,27 +3,29 @@
 #include <iomanip>
 #include <stdexcept>
 #include <string>
-Game ::Game(std ::string Name, std :: string h, std ::string skillname, double lev, std ::string pow)
+Game ::Game(std ::string Name, std :: string h, std ::string skillname, std :: string lev, std ::string pow)
 {
     if (Name.empty() || skillname.empty() || pow.empty())
     {
-        throw std :: invalid_argument("Empty Strings Aren't Availiable !\n");
+        throw std :: invalid_argument("Empty Strings Aren't Availiable !");
         return;
     }
     try{
         stoi(h);
+        stoi(lev);
     }
     catch(const std :: invalid_argument&){
-        throw std :: invalid_argument("floating point aren't valid for health");
+        throw std :: invalid_argument("floating point aren't valid for health or level");
     }
     catch(std :: out_of_range&)
     {
         throw std :: out_of_range("Number is out of range");
     }
     int health = stoi(h);
-    if (health >= 0 && lev >= 0 )
+    int l = stoi(lev);
+    if (health >= 0 && l >= 0 )
     {
-        skill s = {skillname, lev};
+        skill s = {skillname, l};
         v.SetName(Name);
         v.SetHealth(health);
         v.SetSkill(s);
@@ -31,7 +33,7 @@ Game ::Game(std ::string Name, std :: string h, std ::string skillname, double l
     }
     else 
     {
-        throw std :: invalid_argument("Nagetive Numbers Aren't Availiable ! /n");
+        throw std :: invalid_argument("Nagetive Numbers Aren't Availiable ! \n");
         return;
     }
 }
