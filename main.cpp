@@ -10,13 +10,15 @@ int main()
     Game c3("carl", "18", "exploring", "80", "Earth");
     Game c4("Jack", "10", "Cooking", "4", "Fire");
     //Game c5("lina" , "-9" , "cook" , "-8" , "fire");    // Error for negative numbers
-    Game c6("dustin" , "1.8" ,"cooking" , "2.8" , "wind");  // Error for floating point
+    //Game c6("dustin" , "1.8" ,"cooking" , "2.8" , "wind");  // Error for floating point
+    //Game c7("" , "10", "Cooking", "4", "Fire"); // Error for Empty String
     c1.print();
     c2.print();
     c3.print();
     c4.print();
     //c5.print();
-    c6.print();
+    //c6.print();
+    //c7.print();
 
     return 0;
 }
